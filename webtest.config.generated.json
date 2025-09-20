@@ -1,0 +1,72 @@
+{
+    "project_name": "WebTest",
+    "project_id": "5575376f-2485-470a-80e5-da3505e18351",
+    "nodes": [
+        {
+            "name": "PC",
+            "node_id": "974da6f6-9981-488c-9b4b-bcd44c8cde0d",
+            "template_id": "78f7dca8-19a0-466e-b9b3-12254a0b087f",
+            "compute_id": "local",
+            "console": 5024,
+            "console_host": "0.0.0.0",
+            "console_type": "telnet",
+            "ports": [
+                {
+                    "adapter_number": 0,
+                    "port_number": 0
+                }
+            ],
+            "properties": {
+                "adapters": 1,
+                "aux": 5025
+            },
+            "status": "stopped",
+            "x": 0,
+            "y": 0
+        },
+        {
+            "name": "Firewall",
+            "node_id": "aa8d1ec7-d8cf-465d-a156-234a2fab2233",
+            "template_id": "699afbcb-7e70-4b7a-baf5-603871c58485",
+            "compute_id": "local",
+            "console": 5026,
+            "console_host": "0.0.0.0",
+            "console_type": "telnet",
+            "ports": [
+                {
+                    "adapter_number": 0,
+                    "port_number": 0
+                },
+                {
+                    "adapter_number": 1,
+                    "port_number": 0
+                }
+            ],
+            "properties": {
+                "adapters": 2,
+                "aux": 5027
+            },
+            "status": "stopped",
+            "x": 0,
+            "y": 0
+        }
+    ],
+    "links": [
+        {
+            "link_id": "eeff7c34-f2d4-4ac5-afaa-f6e64f140beb",
+            "link_type": "ethernet",
+            "nodes": [
+                {
+                    "node_id": "974da6f6-9981-488c-9b4b-bcd44c8cde0d",
+                    "adapter_number": 0,
+                    "port_number": 0
+                },
+                {
+                    "node_id": "aa8d1ec7-d8cf-465d-a156-234a2fab2233",
+                    "adapter_number": 0,
+                    "port_number": 0
+                }
+            ]
+        }
+    ]
+}
