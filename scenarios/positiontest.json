@@ -1,0 +1,100 @@
+{
+  "gns3_server_ip": "192.168.1.155",
+  "project_name": "test",
+  "project_id": "0559d07b-db31-445b-9f59-386ea17a1232",
+  "templates": {
+    "Cloud": "39e257dc-8412-3174-b6b3-0ee3ed6a43e9",
+    "NAT": "df8f4ea9-33b7-3e96-86a2-c39bc9bb649c",
+    "VPCS": "19021f99-e36f-394d-b4a1-8aaa902ab9cc",
+    "Ethernet switch": "1966b864-93e7-32d5-965f-001384eec461",
+    "Ethernet hub": "b4503ea9-d6b6-3695-9fe4-1db3b39290b0",
+    "Frame Relay switch": "dd0f6f3a-ba58-3249-81cb-a1dd88407a47",
+    "ATM switch": "aaa764e2-b383-300f-8a0e-3493bbfdb7d2",
+    "iptables": "699afbcb-7e70-4b7a-baf5-603871c58485",
+    "malicious-client": "9c47691b-0e22-4fb5-99d2-4c8e861a1dc6",
+    "benign-client": "0c3d9ab1-eab6-472b-b0cd-1e06a9b8fff4",
+    "openvswitch-xp": "b1649795-0658-41bd-8b0f-97867d698bc9",
+    "isc-dhcp-server-amd": "2d635d62-3899-42fb-b0cd-3808d2e23f9b",
+    "wazuh-agent-amd": "9f135f1b-05d4-4239-8762-fbd8a43d7ed2",
+    "wazuh-manager-amd": "0b43fc3b-63a2-4d6b-abab-896b12baa0e4",
+    "firehol-xp": "78f7dca8-19a0-466e-b9b3-12254a0b087f",
+    "isc-dhcp-server": "4fe75208-22df-4931-a83e-5cfe785e0952",
+    "apache-server": "40f26dda-3325-4d85-8c25-942dbb20c118"
+  },
+  "nodes": [
+    {
+      "name": "switch",
+      "template_id": "b1649795-0658-41bd-8b0f-97867d698bc9",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "WS1",
+      "template_id": "0c3d9ab1-eab6-472b-b0cd-1e06a9b8fff4",
+      "x": 50,
+      "y": 50
+    },
+    {
+      "name": "WS2",
+      "template_id": "9c47691b-0e22-4fb5-99d2-4c8e861a1dc6",
+      "x": 0,
+      "y": 50
+    },
+    {
+      "name": "DHCP",
+      "template_id": "4fe75208-22df-4931-a83e-5cfe785e0952",
+      "x": 50,
+      "y": 100
+    }
+  ],
+  "links": [
+    {
+      "link_id": "LINK_switch_TO_WS1",
+      "link_type": "ethernet",
+      "nodes": [
+        {
+          "node_id": "switch",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "WS1",
+          "adapter_number": 0,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "link_id": "LINK_switch_TO_WS2",
+      "link_type": "ethernet",
+      "nodes": [
+        {
+          "node_id": "switch",
+          "adapter_number": 1,
+          "port_number": 0
+        },
+        {
+          "node_id": "WS2",
+          "adapter_number": 0,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "link_id": "LINK_switch_TO_DHCP",
+      "link_type": "ethernet",
+      "nodes": [
+        {
+          "node_id": "switch",
+          "adapter_number": 2,
+          "port_number": 0
+        },
+        {
+          "node_id": "DHCP",
+          "adapter_number": 0,
+          "port_number": 0
+        }
+      ]
+    }
+  ]
+}

@@ -10,13 +10,14 @@ export default function HomePage() {
   const [templateId, setTemplateId] = useState("");
   const [nodeName, setNodeName] = useState("");
   const [Nodes, setNodes] = useState([]);
-const [node1, setNode1] = useState("");
-const [node2, setNode2] = useState("");
+  const [node1, setNode1] = useState("");
+  const [node2, setNode2] = useState("");
   const [adapter1, setAdapter1] = useState(0);
   const [adapter2, setAdapter2] = useState(0);
   const [currentScenario, setCurrentScenario] = useState(null);
   const [Links, setLinks] = useState([]);
-
+  const [xPos, setXPos] = useState(0);
+  const [yPos, setYPos] = useState(0);
   function addNode() {
     if (!templateId || !nodeName) {
       alert("Please select a template and enter a node name.");
@@ -25,8 +26,8 @@ const [node2, setNode2] = useState("");
     const newNode = {
       name: nodeName,
       template_id: templateId,
-      x: 0, 
-      y: 0,
+      x: xPos, 
+      y: yPos,
     };
     setNodes([...Nodes, newNode]);
     setNodeName(""); 
@@ -126,6 +127,27 @@ const [node2, setNode2] = useState("");
           <h1 className="text-xl underline">Create Nodes</h1>
           <TemplateDropdown onSelect={setTemplateId} />
           <NameNode onChange={setNodeName} />
+          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <label className="flex items-center gap-1 text-sm text-gray-300">
+              X:
+              <input
+                className="w-15 border p-1 rounded bg-gray-800 text-white"
+                type="number"
+                value={xPos}
+                onChange={(e) => setXPos(parseInt(e.target.value, 10) || 0)}
+              />
+            </label>
+
+            <label className="flex items-center gap-1 text-sm text-gray-300">
+              Y:
+              <input
+                className="w-15 border p-1 rounded bg-gray-800 text-white"
+                type="number"
+                value={yPos}
+                onChange={(e) => setYPos(parseInt(e.target.value, 10) || 0)}
+              />
+            </label>
+          </div>
           <button
             onClick={addNode}
             className="mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
