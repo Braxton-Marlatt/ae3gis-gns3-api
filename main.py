@@ -77,6 +77,8 @@ def get_scenarios(folder=SCENARIOS_DIR):
             })
     return scenarios
 
+
+
 class ConfigFile(BaseModel):
     filename: str
     name: str
@@ -98,7 +100,7 @@ def build(req: ConfigFile):
     created_nodes = []
     name_to_id = {}
     alias_to_id = {}
-    base_url = "http://192.168.1.155:3080"
+    
     nodes_spec = scenario.get("nodes", [])
     if not nodes_spec:
         raise SystemExit("[ERROR] No 'nodes' array in scenario")
@@ -110,7 +112,7 @@ def build(req: ConfigFile):
         if not template_id:
             raise SystemExit(f"[ERROR] Node '{name}' missing template_id")
 
-        node = build_scenario.add_node_from_template(s, base_url, scenario["project_id"], template_id, name, x, y)
+        node = build_scenario.add_node_from_template(s, API_URL, scenario["project_id"], template_id, name, x, y)
         created_nodes.append(node)
         name_to_id[name] = node["node_id"]
         for a in build_scenario.alias_variants(name):

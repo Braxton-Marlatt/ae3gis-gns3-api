@@ -60,7 +60,7 @@ export function LinkDropdown({ nodes, onSelect }) {
         <option value="">-- Select a Node --</option>
         {nodes.map((node, idx) => (
           <option key={idx} value={idx}>
-            {node.name} ({node.template_id})
+            {node.name} 
           </option>
         ))}
       </select>
@@ -97,3 +97,4 @@ export function ScenarioDropdown({ onSelect }) {
     </div>
   );
 }
+

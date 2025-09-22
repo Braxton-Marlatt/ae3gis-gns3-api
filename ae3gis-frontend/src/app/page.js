@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef} from "react";
 import { ScenarioInput } from "./components/InputBoxes";
-import { TemplateDropdown, fetchTemplates, LinkDropdown, ScenarioDropdown } from "./components/TemplateDropdown";
+import { TemplateDropdown, LinkDropdown, ScenarioDropdown} from "./components/TemplateDropdown";
 import { NameNode } from "./components/InputBoxes";
 
 
@@ -10,8 +10,10 @@ export default function HomePage() {
   const [templateId, setTemplateId] = useState("");
   const [nodeName, setNodeName] = useState("");
   const [Nodes, setNodes] = useState([]);
-  const [node1, setNode1] = useState("");
-  const [node2, setNode2] = useState("");
+const [node1, setNode1] = useState("");
+const [node2, setNode2] = useState("");
+  const [adapter1, setAdapter1] = useState(0);
+  const [adapter2, setAdapter2] = useState(0);
   const [currentScenario, setCurrentScenario] = useState(null);
   const [Links, setLinks] = useState([]);
 
@@ -48,20 +50,18 @@ export default function HomePage() {
       nodes: [
         {
           node_id: node1.name,
-          adapter_number: 0,
+          adapter_number: adapter1,
           port_number: 0,
         },
         {
           node_id: node2.name,
-          adapter_number: 0,
+          adapter_number: adapter2,
           port_number: 0,
         },
       ],
     };
 
     setLinks([...Links, newLink]);
-    setNode1("");
-    setNode2("");
   }
 
   async function saveScenario() {
@@ -142,10 +142,24 @@ export default function HomePage() {
             ))}
           </ul>
           <h1 className="text-xl underline">Create Links</h1>
-          <h1 className="text">Link Node 1:</h1>
-          <LinkDropdown nodes={Nodes} onSelect={setNode1}/>
-          <h1 className="text">Link Node 2:</h1>
-          <LinkDropdown nodes={Nodes} onSelect={setNode2}/>
+          <h1 className="text">Link Node 1 and Adapter Number:</h1>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <LinkDropdown nodes={Nodes} onSelect={setNode1} />
+            <input className="w-10 border p-1 rounded"
+              type="number"
+              value={adapter1}
+              onChange={(e) => setAdapter1(parseInt(e.target.value, 10) || 0)}
+            />
+          </div>
+          <h1 className="text">Link Node 2 and Adapter Number:</h1>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <LinkDropdown nodes={Nodes} onSelect={setNode2} />
+            <input className="w-10 border p-1 rounded"
+              type="number"
+              value={adapter2}
+              onChange={(e) => setAdapter2(parseInt(e.target.value, 10) || 0)}
+            />
+          </div>
           <button
             onClick={createLink}
             className="mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"

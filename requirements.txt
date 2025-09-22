@@ -1,2 +1,6 @@
 requests==2.32.4
 telnetlib3==2.0.4
+fastapi==0.117.1
+uvicorn==0.36.0
+dotenv==0.9.9
+gns3fy==0.8.0
