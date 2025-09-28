@@ -6,7 +6,7 @@ import asyncio
 from pathlib import Path
 
 import requests
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Query
 
 from core.config_store import ConfigStore
 from core.gns3_client import GNS3Client
@@ -24,7 +24,7 @@ def _resolve_base_url(scenario: dict[str, object], override: str | None) -> str:
     ip = scenario.get("gns3_server_ip")
     if not isinstance(ip, str) or not ip:
         raise ValueError("Scenario missing 'gns3_server_ip' and no base_url override provided")
-    base = ip if ip.startswith("http") else f"http://{ip}:80"
+    base = ip if ip.startswith("http") else f"http://{ip}:3080"
     return base.rstrip("/")
 
 
@@ -62,3 +62,46 @@ async def build_scenario(
         links_created=[dict(link) for link in result.links_created],
         config_path=Path(config_path),
     )
+
+@router.get("/templates")
+async def get_templates(gns3_server_ip: str = Query(..., description="IP of the GNS3 server")):
+    session = requests.Session()
+    session.headers.update({"Accept": "application/json", "Content-Type": "application/json"})
+
+    base_url = f"http://{gns3_server_ip}:3080"
+
+    try:
+        # Example if your GNS3Client wraps requests:
+        client = GNS3Client(base_url=base_url, session=session)
+
+        templates = list(client.list_templates())
+        return templates
+
+    except requests.RequestException as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        session.close()
+
+@router.get("/projects")
+async def get_projects(gns3_server_ip: str = Query(..., description="IP of the GNS3 server")):
+    session = requests.Session()
+    session.headers.update({"Accept": "application/json", "Content-Type": "application/json"})
+
+    base_url = f"http://{gns3_server_ip}:3080"
+
+    try:
+        # GNS3 API wrapper client
+        connector = GNS3Client(base_url=base_url, session=session)
+        projects = connector.list_projects()
+
+        # Return only useful info (id + name), not the entire raw response
+        simplified = [
+            {"project_id": p["project_id"], "name": p["name"]}
+            for p in projects
+        ]
+        return simplified
+
+    except requests.RequestException as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        session.close()

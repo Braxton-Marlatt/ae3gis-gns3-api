@@ -1,12 +1,14 @@
 """Application factory for the FastAPI service."""
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from .dependencies import get_settings
 from .routers import dhcp as dhcp_router
 from .routers import scenario as scenario_router
 from .routers import scripts as scripts_router
 from models import APISettings
+
 
 
 def create_app() -> FastAPI:
@@ -29,3 +31,10 @@ def create_app() -> FastAPI:
 
 
 app = create_app()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # frontend origin
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)

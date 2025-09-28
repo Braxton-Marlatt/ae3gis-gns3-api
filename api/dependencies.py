@@ -12,6 +12,7 @@ from core.script_pusher import ScriptPusher
 from models import APISettings
 
 
+
 @lru_cache
 def get_settings() -> APISettings:
     """Return application settings (cached for process lifetime)."""

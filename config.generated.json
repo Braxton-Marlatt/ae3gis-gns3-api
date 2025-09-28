@@ -1,0 +1,85 @@
+{
+    "project_name": "new",
+    "project_id": "bb62638f-a349-4420-be66-ad8d20b44c4c",
+    "nodes": [
+        {
+            "name": "OpenvSwitch-2",
+            "node_id": "d9082c84-44e9-438a-bd34-0e37640b234c",
+            "template_id": "e0c0b0d7-1aab-4659-943a-50637ffd3157",
+            "compute_id": "local",
+            "console": 5002,
+            "console_host": "0.0.0.0",
+            "console_type": "telnet",
+            "ports": [
+                {
+                    "adapter_number": 0,
+                    "port_number": 0
+                },
+                {
+                    "adapter_number": 1,
+                    "port_number": 0
+                },
+                {
+                    "adapter_number": 2,
+                    "port_number": 0
+                },
+                {
+                    "adapter_number": 3,
+                    "port_number": 0
+                },
+                {
+                    "adapter_number": 4,
+                    "port_number": 0
+                },
+                {
+                    "adapter_number": 5,
+                    "port_number": 0
+                },
+                {
+                    "adapter_number": 6,
+                    "port_number": 0
+                },
+                {
+                    "adapter_number": 7,
+                    "port_number": 0
+                },
+                {
+                    "adapter_number": 8,
+                    "port_number": 0
+                },
+                {
+                    "adapter_number": 9,
+                    "port_number": 0
+                },
+                {
+                    "adapter_number": 10,
+                    "port_number": 0
+                },
+                {
+                    "adapter_number": 11,
+                    "port_number": 0
+                },
+                {
+                    "adapter_number": 12,
+                    "port_number": 0
+                },
+                {
+                    "adapter_number": 13,
+                    "port_number": 0
+                },
+                {
+                    "adapter_number": 14,
+                    "port_number": 0
+                }
+            ],
+            "properties": {
+                "adapters": 15,
+                "aux": 5003
+            },
+            "status": "started",
+            "x": 0,
+            "y": -140
+        }
+    ],
+    "links": []
+}
