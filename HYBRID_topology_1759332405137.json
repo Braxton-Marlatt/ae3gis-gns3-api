@@ -1,0 +1,1004 @@
+{
+  "gns3_server_ip": "192.168.1.156",
+  "project_name": "new",
+  "project_id": "bb62638f-a349-4420-be66-ad8d20b44c4c",
+  "templates": {
+    "tollan-iptables": "e73f1703-e092-4998-82b7-9545993fa3ee",
+    "tollan-benign-client": "a1a04d2a-448b-4bcb-98cb-7ff1856308aa",
+    "tollan-apache-server": "9b438aee-90bd-42d2-b537-a99a6289b104",
+    "tollan-malicious-client": "9680a9c6-13ac-4dad-8704-ffdbe9a0de8f",
+    "tollan-nginx-server": "c212f6b3-1b39-4160-8c85-81aa402e39b3",
+    "tollan-ftp-server": "5fe3a520-48f6-492a-8f2e-1114dbdd34ae",
+    "tollan-isc-dhcp-server": "c62fabff-a008-4b71-86ed-7690c3db1c1c",
+    "tollan-openvswitch-xp": "e0c0b0d7-1aab-4659-943a-50637ffd3157",
+    "Cloud": "39e257dc-8412-3174-b6b3-0ee3ed6a43e9",
+    "NAT": "df8f4ea9-33b7-3e96-86a2-c39bc9bb649c",
+    "VPCS": "19021f99-e36f-394d-b4a1-8aaa902ab9cc",
+    "Ethernet switch": "1966b864-93e7-32d5-965f-001384eec461",
+    "Ethernet hub": "b4503ea9-d6b6-3695-9fe4-1db3b39290b0",
+    "Frame Relay switch": "dd0f6f3a-ba58-3249-81cb-a1dd88407a47",
+    "ATM switch": "aaa764e2-b383-300f-8a0e-3493bbfdb7d2"
+  },
+  "topology_type": "HYBRID",
+  "created_at": "2025-10-01T15:26:45.136Z",
+  "nodes": [
+    {
+      "node_id": "Workstations_1",
+      "name": "Workstations_1",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": -500,
+      "y": 300,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_2",
+      "name": "Workstations_2",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": -300,
+      "y": 300,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_3",
+      "name": "Workstations_3",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": -100,
+      "y": 300,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_4",
+      "name": "Workstations_4",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": 100,
+      "y": 300,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_5",
+      "name": "Workstations_5",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": 300,
+      "y": 300,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_6",
+      "name": "Workstations_6",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": 500,
+      "y": 300,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_7",
+      "name": "Workstations_7",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": -500,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_8",
+      "name": "Workstations_8",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": -300,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_9",
+      "name": "Workstations_9",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": -100,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_10",
+      "name": "Workstations_10",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": 100,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_11",
+      "name": "Workstations_11",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": 300,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_12",
+      "name": "Workstations_12",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": 500,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_13",
+      "name": "Workstations_13",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": -500,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_14",
+      "name": "Workstations_14",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": -300,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_15",
+      "name": "Workstations_15",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": -100,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_16",
+      "name": "Workstations_16",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": 100,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_17",
+      "name": "Workstations_17",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": 300,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_18",
+      "name": "Workstations_18",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": 500,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_19",
+      "name": "Workstations_19",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": -500,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_20",
+      "name": "Workstations_20",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": -300,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_21",
+      "name": "Workstations_21",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": -100,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_22",
+      "name": "Workstations_22",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": 100,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_23",
+      "name": "Workstations_23",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": 300,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_24",
+      "name": "Workstations_24",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": 500,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_25",
+      "name": "Workstations_25",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": -500,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_26",
+      "name": "Workstations_26",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": -300,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_27",
+      "name": "Workstations_27",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": -100,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_28",
+      "name": "Workstations_28",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": 100,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_29",
+      "name": "Workstations_29",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": 300,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Workstations_30",
+      "name": "Workstations_30",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": 500,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Switches_1",
+      "name": "Switches_1",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": -450,
+      "y": 150,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Switches_2",
+      "name": "Switches_2",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": -150,
+      "y": 150,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Switches_3",
+      "name": "Switches_3",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": 150,
+      "y": 150,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Switches_4",
+      "name": "Switches_4",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": 450,
+      "y": 150,
+      "zone": "IT"
+    },
+    {
+      "node_id": "DHCP Server_1",
+      "name": "DHCP Server_1",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": -500,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Web Server_1",
+      "name": "Web Server_1",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": -300,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "Web Server_2",
+      "name": "Web Server_2",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": -100,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "DNS Server_1",
+      "name": "DNS Server_1",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": 100,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "DNS Server_2",
+      "name": "DNS Server_2",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": 300,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "DNS Server_3",
+      "name": "DNS Server_3",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": 500,
+      "y": 450,
+      "zone": "IT"
+    },
+    {
+      "node_id": "PLC_1",
+      "name": "PLC_1",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": -100,
+      "y": -300,
+      "zone": "OT"
+    },
+    {
+      "node_id": "PLC_2",
+      "name": "PLC_2",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": 100,
+      "y": -300,
+      "zone": "OT"
+    },
+    {
+      "node_id": "HMI_1",
+      "name": "HMI_1",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": 0,
+      "y": -450,
+      "zone": "OT"
+    },
+    {
+      "node_id": "Industrial Switch_1",
+      "name": "Industrial Switch_1",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": 0,
+      "y": -150,
+      "zone": "OT"
+    },
+    {
+      "node_id": "Firewall_1",
+      "name": "Firewall_1",
+      "template_id": "e73f1703-e092-4998-82b7-9545993fa3ee",
+      "x": 0,
+      "y": 0,
+      "zone": "DMZ"
+    }
+  ],
+  "links": [
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_1",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_1",
+          "adapter_number": 1,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_2",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_2",
+          "adapter_number": 2,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_3",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_3",
+          "adapter_number": 3,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_4",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_4",
+          "adapter_number": 4,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_5",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_1",
+          "adapter_number": 5,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_6",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_2",
+          "adapter_number": 6,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_7",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_3",
+          "adapter_number": 7,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_8",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_4",
+          "adapter_number": 8,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_9",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_1",
+          "adapter_number": 1,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_10",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_2",
+          "adapter_number": 2,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_11",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_3",
+          "adapter_number": 3,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_12",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_4",
+          "adapter_number": 4,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_13",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_1",
+          "adapter_number": 5,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_14",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_2",
+          "adapter_number": 6,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_15",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_3",
+          "adapter_number": 7,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_16",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_4",
+          "adapter_number": 8,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_17",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_1",
+          "adapter_number": 1,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_18",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_2",
+          "adapter_number": 2,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_19",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_3",
+          "adapter_number": 3,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_20",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_4",
+          "adapter_number": 4,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_21",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_1",
+          "adapter_number": 5,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_22",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_2",
+          "adapter_number": 6,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_23",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_3",
+          "adapter_number": 7,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_24",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_4",
+          "adapter_number": 8,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_25",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_1",
+          "adapter_number": 1,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_26",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_2",
+          "adapter_number": 2,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_27",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_3",
+          "adapter_number": 3,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_28",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_4",
+          "adapter_number": 4,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_29",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_1",
+          "adapter_number": 5,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Workstations_30",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_2",
+          "adapter_number": 6,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "DHCP Server_1",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_3",
+          "adapter_number": 7,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Web Server_1",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_4",
+          "adapter_number": 8,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Web Server_2",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_1",
+          "adapter_number": 1,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "DNS Server_1",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_2",
+          "adapter_number": 2,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "DNS Server_2",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_3",
+          "adapter_number": 3,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "DNS Server_3",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Switches_4",
+          "adapter_number": 4,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "PLC_1",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Industrial Switch_1",
+          "adapter_number": 1,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "PLC_2",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Industrial Switch_1",
+          "adapter_number": 2,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "HMI_1",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Industrial Switch_1",
+          "adapter_number": 3,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Switches_1",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Firewall_1",
+          "adapter_number": 1,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Switches_2",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Firewall_1",
+          "adapter_number": 2,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Switches_3",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Firewall_1",
+          "adapter_number": 3,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Switches_4",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Firewall_1",
+          "adapter_number": 4,
+          "port_number": 0
+        }
+      ]
+    },
+    {
+      "nodes": [
+        {
+          "node_id": "Industrial Switch_1",
+          "adapter_number": 0,
+          "port_number": 0
+        },
+        {
+          "node_id": "Firewall_1",
+          "adapter_number": 5,
+          "port_number": 0
+        }
+      ]
+    }
+  ]
+}
