@@ -9,3 +9,4 @@ config.generated.json
 .DS_Store
 .vscode
 /core/runner_data
+/artifacts
