@@ -1,1 +1,0 @@
-{"event": "verbose", "uuid": "3ee9526f-76e6-453f-ac16-efad96222e4b", "counter": 1, "stdout": "\u001b[0;35m[DEPRECATION WARNING]: DEFAULT_FACT_PATH option, the module_defaults keyword is\u001b[0m", "start_line": 0, "end_line": 1, "runner_ident": "7d07d28b-346e-473d-be8a-3a615239dd46", "created": "2025-10-20T16:54:18.129686+00:00"}

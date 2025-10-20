@@ -1,1 +1,0 @@
-{"ANSIBLE_CACHE_PLUGIN": "jsonfile", "ANSIBLE_CACHE_PLUGIN_CONNECTION": "/home/brax/ae3gis-gns3-api/core/runner_data/.cache/facts", "ANSIBLE_FACT_PATH": "/home/brax/ae3gis-gns3-api/core/runner_data/.cache/facts"}

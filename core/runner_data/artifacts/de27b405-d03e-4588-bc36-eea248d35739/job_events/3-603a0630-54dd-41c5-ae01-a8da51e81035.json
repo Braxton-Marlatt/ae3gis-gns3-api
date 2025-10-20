@@ -1,1 +1,0 @@
-{"event": "verbose", "uuid": "603a0630-54dd-41c5-ae01-a8da51e81035", "counter": 3, "stdout": "\u001b[0;35mM(ansible.builtin.gather_facts) or M(ansible.builtin.setup) actions, use \u001b[0m", "start_line": 2, "end_line": 3, "runner_ident": "de27b405-d03e-4588-bc36-eea248d35739", "created": "2025-10-18T20:55:45.119675+00:00"}
