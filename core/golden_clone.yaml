@@ -1,0 +1,177 @@
+---
+- name: Clone GNS3 VM for a student
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  vars:
+    ansible_python_interpreter: "/home/brax/ansible-test/.venv/bin/python3"
+    # Student-specific
+    student_id: "{{ student_id | default('test-student') }}"
+    student_number: "{{ student_number | default(1) }}"
+    # Proxmox API connection
+    proxmox_api_host: "{{ lookup('env', 'PROXMOX_IP') }}" # IP of Proxmox Server
+    proxmox_api_user: "{{ lookup('env', 'PROXMOX_API_USER') }}" # Proxmox User
+    proxmox_api_token_id: "{{ lookup('env', 'PROXMOX_API_TOKEN_ID') }}"  
+    proxmox_api_token_secret: "{{ lookup('env', 'PROXMOX_API_TOKEN_SECRET') }}"
+    proxmox_node: "{{ lookup('env', 'PROXMOX_NODE') }}" 
+    # VM details
+    golden_image_name: "GNS3Golden" # Name of VM in proxmox
+    base_vmid: 200 # starting vmid of student nodes
+    new_vmid: "{{ base_vmid + (student_number | int) }}"
+    vm_name: "gns3-{{ student_id }}"
+
+  tasks:
+    - name: Clone golden image VM
+      community.proxmox.proxmox_kvm:
+        api_host: "{{ proxmox_api_host }}"
+        api_user: "{{ proxmox_api_user }}"
+        api_token_id: "{{ proxmox_api_token_id }}"
+        api_token_secret: "{{ proxmox_api_token_secret }}"
+        node: "{{ proxmox_node }}"
+        clone: "{{ golden_image_name }}"
+        newid: "{{ new_vmid | int }}"
+        name: "{{ vm_name }}"
+        full: no             # Do a full clone
+        state: present
+        timeout: 300
+        validate_certs: no
+      register: clone_result
+      delegate_to: localhost
+
+    - name: Display clone task ID
+      debug:
+        msg: "Clone task started with ID: {{ clone_result.taskid | default('N/A') }}"
+
+    - name: Wait for clone operation to complete
+      uri:
+        url: "https://{{ proxmox_api_host }}:8006/api2/json/nodes/{{ proxmox_node }}/tasks/{{ clone_result.taskid }}/status"
+        method: GET
+        headers:
+          Authorization: "PVEAPIToken={{ proxmox_api_user }}!{{ proxmox_api_token_id }}={{ proxmox_api_token_secret }}"
+        validate_certs: no
+        status_code: 200
+      register: task_status
+      until: task_status.json.data.status == "stopped"
+      retries: 60
+      delay: 5
+      delegate_to: localhost
+      when: clone_result.taskid is defined
+
+    - name: Check if clone was successful
+      fail:
+        msg: "Clone task failed with exitstatus: {{ task_status.json.data.exitstatus }}"
+      when:
+        - task_status.json.data.exitstatus is defined
+        - task_status.json.data.exitstatus != "OK"
+
+    - name: Clone completed successfully
+      debug:
+        msg: "VM cloned successfully. Starting VM..."
+
+    - name: Start the new VM
+      community.proxmox.proxmox_kvm:
+        api_host: "{{ proxmox_api_host }}"
+        api_user: "{{ proxmox_api_user }}"
+        api_token_id: "{{ proxmox_api_token_id }}"
+        api_token_secret: "{{ proxmox_api_token_secret }}"
+        node: "{{ proxmox_node }}"
+        vmid: "{{ new_vmid | int }}"
+        state: started
+        timeout: 60
+        validate_certs: no
+      register: start_result
+      delegate_to: localhost
+
+    - name: Wait for VM to fully boot (checking status)
+      uri:
+        url: "https://{{ proxmox_api_host }}:8006/api2/json/nodes/{{ proxmox_node }}/qemu/{{ new_vmid }}/status/current"
+        method: GET
+        headers:
+          Authorization: "PVEAPIToken={{ proxmox_api_user }}!{{ proxmox_api_token_id }}={{ proxmox_api_token_secret }}"
+        validate_certs: no
+      register: vm_status
+      until: vm_status.json.data.status == "running"
+      retries: 30
+      delay: 5
+      delegate_to: localhost
+
+    - name: VM is running
+      debug:
+        msg: "VM is now running. Waiting for QEMU guest agent to report IP address..."
+
+    - name: Wait for QEMU guest agent to report network interfaces
+      uri:
+        url: "https://{{ proxmox_api_host }}:8006/api2/json/nodes/{{ proxmox_node }}/qemu/{{ new_vmid }}/agent/network-get-interfaces"
+        method: GET
+        headers:
+          Authorization: "PVEAPIToken={{ proxmox_api_user }}!{{ proxmox_api_token_id }}={{ proxmox_api_token_secret }}"
+        validate_certs: no
+        status_code: [200, 500]
+      register: vm_net
+      until: >
+        vm_net.status == 200 and
+        vm_net.json.data.result is defined and
+        vm_net.json.data.result | length > 0
+      retries: 60
+      delay: 5
+      delegate_to: localhost
+
+    - name: Extract IP addresses from network interfaces
+      set_fact:
+        vm_ip_addresses: >-
+          {{
+            vm_net.json.data.result
+            | selectattr('ip-addresses', 'defined')
+            | map(attribute='ip-addresses')
+            | flatten
+            | selectattr('ip-address', 'defined')
+            | selectattr('ip-address-type', 'equalto', 'ipv4')
+            | map(attribute='ip-address')
+            | reject('equalto', '127.0.0.1')
+            | list
+          }}
+      delegate_to: localhost
+
+    - name: Display all detected IP addresses
+      debug:
+        msg: "Detected IP addresses: {{ vm_ip_addresses }}"
+
+    - name: Set primary IP address
+      set_fact:
+        new_vm_ip: "{{ vm_ip_addresses | first }}"
+      when: vm_ip_addresses | length > 0
+      delegate_to: localhost
+
+    - name: Fail if no IP address found
+      fail:
+        msg: "No IP address was detected for the VM. Make sure QEMU guest agent is installed and running."
+      when: vm_ip_addresses | length == 0
+
+    - name: Wait for SSH to become available
+      wait_for:
+        host: "{{ new_vm_ip }}"
+        port: 22
+        timeout: 300
+        state: started
+      delegate_to: localhost
+
+    - name: "=== VM CREATION COMPLETE ==="
+      debug:
+        msg:
+          - "================================================"
+          - "VM successfully created and started!"
+          - "================================================"
+          - "Student ID: {{ student_id }}"
+          - "VM Name: {{ vm_name }}"
+          - "VM ID: {{ new_vmid }}"
+          - "IP Address: {{ new_vm_ip }}"
+          - "SSH Available: Yes"
+          - "================================================"
+          - "You can access the VM via SSH at: ssh user@{{ new_vm_ip }}"
+          - "================================================"
+    - name: Save VM IP to fact_cache
+      set_fact:
+        created_vm_ip: "{{ new_vm_ip }}"
+        cacheable: yes
+      delegate_to: localhost
+

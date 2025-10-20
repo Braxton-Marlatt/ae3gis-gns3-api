@@ -1,0 +1,19 @@
+[0;35m[DEPRECATION WARNING]: DEFAULT_FACT_PATH option, the module_defaults keyword is[0m
+[0;35m a more generic version and can apply to all calls to the [0m
+[0;35mM(ansible.builtin.gather_facts) or M(ansible.builtin.setup) actions, use [0m
+[0;35mmodule_defaults instead. This feature will be removed from ansible-core in [0m
+[0;35mversion 2.18. Deprecation warnings can be disabled by setting [0m
+[0;35mdeprecation_warnings=False in ansible.cfg.[0m
+[1;35m[WARNING]: No inventory was parsed, only implicit localhost is available[0m
+[1;35m[WARNING]: provided hosts list is empty, only localhost is available. Note that[0m
+[1;35mthe implicit localhost does not match 'all'[0m
+[1;35m[WARNING]: Collection community.proxmox does not support Ansible version 2.16.3[0m
+
+PLAY [Clone GNS3 VM for a student] *********************************************
+
+TASK [Clone golden image VM] ***************************************************
+[0;31mAn exception occurred during task execution. To see the full traceback, use -vvv. The error was: proxmoxer.core.ResourceException: 401 Unauthorized: 'root@pam!' is not a valid token ID - not able to split into user and token parts - {'errors': b''}[0m
+[0;31mfatal: [localhost]: FAILED! => {"changed": false, "msg": "401 Unauthorized: 'root@pam!' is not a valid token ID - not able to split into user and token parts - {'errors': b''}"}[0m
+
+PLAY RECAP *********************************************************************
+[0;31mlocalhost[0m                  : ok=0    changed=0    unreachable=0    [0;31mfailed=1   [0m skipped=0    rescued=0    ignored=0   

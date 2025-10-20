@@ -12,6 +12,7 @@ from .routers import dhcp as dhcp_router
 from .routers import scenario as scenario_router
 from .routers import scripts as scripts_router
 from .routers import topologies as topologies_router
+from .routers import server as server_router
 from core.template_cache import TemplateCacheError, refresh_templates_cache
 from models import APISettings
 
@@ -31,10 +32,11 @@ def create_app() -> FastAPI:
     app.include_router(dhcp_router.router)
     app.include_router(scripts_router.router)
     app.include_router(topologies_router.router)
+    app.include_router(server_router.router)
 
-    @app.on_event("startup")
-    async def warm_template_cache() -> None:
-        def _refresh() -> None:
+    #@app.on_event("startup")
+    #async def warm_template_cache() -> None:
+    def _refresh() -> None:
             refresh_templates_cache(
                 base_url=settings.gns3_base_url,
                 cache_path=settings.templates_cache_path,
@@ -44,11 +46,11 @@ def create_app() -> FastAPI:
                 server_port=settings.gns3_server_port,
             )
 
-        try:
-            await asyncio.to_thread(_refresh)
-        except TemplateCacheError as exc:
-            logger.exception("Failed to refresh GNS3 template cache: %s", exc)
-            raise
+     #   try:
+     #       await asyncio.to_thread(_refresh)
+     #   except TemplateCacheError as exc:
+     #       logger.exception("Failed to refresh GNS3 template cache: %s", exc)
+     #       raise
 
     @app.get("/health", tags=["meta"])
     async def healthcheck() -> dict[str, str]:

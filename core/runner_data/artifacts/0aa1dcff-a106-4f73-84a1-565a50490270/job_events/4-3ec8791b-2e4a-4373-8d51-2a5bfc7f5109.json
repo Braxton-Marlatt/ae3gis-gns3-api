@@ -1,0 +1,1 @@
+{"event": "verbose", "uuid": "3ec8791b-2e4a-4373-8d51-2a5bfc7f5109", "counter": 4, "stdout": "\u001b[0;35mmodule_defaults instead. This feature will be removed from ansible-core in \u001b[0m", "start_line": 3, "end_line": 4, "runner_ident": "0aa1dcff-a106-4f73-84a1-565a50490270", "created": "2025-10-18T21:21:10.276769+00:00"}

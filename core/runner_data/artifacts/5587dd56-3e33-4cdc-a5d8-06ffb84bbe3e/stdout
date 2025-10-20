@@ -1,0 +1,86 @@
+[0;35m[DEPRECATION WARNING]: DEFAULT_FACT_PATH option, the module_defaults keyword is[0m
+[0;35m a more generic version and can apply to all calls to the [0m
+[0;35mM(ansible.builtin.gather_facts) or M(ansible.builtin.setup) actions, use [0m
+[0;35mmodule_defaults instead. This feature will be removed from ansible-core in [0m
+[0;35mversion 2.18. Deprecation warnings can be disabled by setting [0m
+[0;35mdeprecation_warnings=False in ansible.cfg.[0m
+[1;35m[WARNING]: No inventory was parsed, only implicit localhost is available[0m
+[1;35m[WARNING]: provided hosts list is empty, only localhost is available. Note that[0m
+[1;35mthe implicit localhost does not match 'all'[0m
+[1;35m[WARNING]: Collection community.proxmox does not support Ansible version 2.16.3[0m
+
+PLAY [Clone GNS3 VM for a student] *********************************************
+
+TASK [Clone golden image VM] ***************************************************
+[0;33mchanged: [localhost][0m
+
+TASK [Display clone task ID] ***************************************************
+[0;32mok: [localhost] => {[0m
+[0;32m    "msg": "Clone task started with ID: N/A"[0m
+[0;32m}[0m
+
+TASK [Wait for clone operation to complete] ************************************
+[0;36mskipping: [localhost][0m
+
+TASK [Check if clone was successful] *******************************************
+[0;36mskipping: [localhost][0m
+
+TASK [Clone completed successfully] ********************************************
+[0;32mok: [localhost] => {[0m
+[0;32m    "msg": "VM cloned successfully. Starting VM..."[0m
+[0;32m}[0m
+
+TASK [Start the new VM] ********************************************************
+[0;33mchanged: [localhost][0m
+
+TASK [Wait for VM to fully boot (checking status)] *****************************
+[0;32mok: [localhost][0m
+
+TASK [VM is running] ***********************************************************
+[0;32mok: [localhost] => {[0m
+[0;32m    "msg": "VM is now running. Waiting for QEMU guest agent to report IP address..."[0m
+[0;32m}[0m
+
+TASK [Wait for QEMU guest agent to report network interfaces] ******************
+[1;30mFAILED - RETRYING: [localhost]: Wait for QEMU guest agent to report network interfaces (60 retries left).[0m
+[0;32mok: [localhost][0m
+
+TASK [Extract IP addresses from network interfaces] ****************************
+[0;32mok: [localhost][0m
+
+TASK [Display all detected IP addresses] ***************************************
+[0;32mok: [localhost] => {[0m
+[0;32m    "msg": "Detected IP addresses: ['192.168.1.222', '192.168.122.1', '172.17.0.1']"[0m
+[0;32m}[0m
+
+TASK [Set primary IP address] **************************************************
+[0;32mok: [localhost][0m
+
+TASK [Fail if no IP address found] *********************************************
+[0;36mskipping: [localhost][0m
+
+TASK [Wait for SSH to become available] ****************************************
+[0;32mok: [localhost][0m
+
+TASK [=== VM CREATION COMPLETE ===] ********************************************
+[0;32mok: [localhost] => {[0m
+[0;32m    "msg": [[0m
+[0;32m        "================================================",[0m
+[0;32m        "VM successfully created and started!",[0m
+[0;32m        "================================================",[0m
+[0;32m        "Student ID: brax4",[0m
+[0;32m        "VM Name: gns3-brax4",[0m
+[0;32m        "VM ID: 204",[0m
+[0;32m        "IP Address: 192.168.1.222",[0m
+[0;32m        "SSH Available: Yes",[0m
+[0;32m        "================================================",[0m
+[0;32m        "You can access the VM via SSH at: ssh user@192.168.1.222",[0m
+[0;32m        "================================================"[0m
+[0;32m    ][0m
+[0;32m}[0m
+
+TASK [Save VM IP to fact_cache] ************************************************
+[0;32mok: [localhost][0m
+
+PLAY RECAP *********************************************************************
+[0;33mlocalhost[0m                  : [0;32mok=13  [0m [0;33mchanged=2   [0m unreachable=0    failed=0    [0;36mskipped=3   [0m rescued=0    ignored=0   

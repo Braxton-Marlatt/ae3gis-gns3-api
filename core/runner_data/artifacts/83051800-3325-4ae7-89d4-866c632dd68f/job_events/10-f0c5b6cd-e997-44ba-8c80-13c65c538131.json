@@ -1,0 +1,1 @@
+{"event": "verbose", "uuid": "f0c5b6cd-e997-44ba-8c80-13c65c538131", "counter": 10, "stdout": "\u001b[1;35m[WARNING]: Collection community.proxmox does not support Ansible version 2.16.3\u001b[0m", "start_line": 9, "end_line": 10, "runner_ident": "83051800-3325-4ae7-89d4-866c632dd68f", "created": "2025-10-20T16:58:28.606049+00:00"}

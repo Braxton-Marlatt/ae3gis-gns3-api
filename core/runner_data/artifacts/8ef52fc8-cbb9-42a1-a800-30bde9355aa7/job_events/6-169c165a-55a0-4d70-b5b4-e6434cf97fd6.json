@@ -1,0 +1,1 @@
+{"event": "verbose", "uuid": "169c165a-55a0-4d70-b5b4-e6434cf97fd6", "counter": 6, "stdout": "\u001b[0;35mdeprecation_warnings=False in ansible.cfg.\u001b[0m", "start_line": 5, "end_line": 6, "runner_ident": "8ef52fc8-cbb9-42a1-a800-30bde9355aa7", "created": "2025-10-20T00:33:21.525121+00:00"}
