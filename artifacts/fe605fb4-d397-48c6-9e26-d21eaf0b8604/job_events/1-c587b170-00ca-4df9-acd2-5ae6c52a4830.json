@@ -1,1 +1,0 @@
-{"event": "verbose", "uuid": "c587b170-00ca-4df9-acd2-5ae6c52a4830", "counter": 1, "stdout": "\u001b[0;31mERROR! the playbook: golden_clone.yaml could not be found\u001b[0m", "start_line": 0, "end_line": 1, "runner_ident": "fe605fb4-d397-48c6-9e26-d21eaf0b8604", "created": "2025-10-17T23:33:29.799672+00:00"}
